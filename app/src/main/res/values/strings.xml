@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Todo App</string>
+    <string name="add_fab">Add</string>
+    <string name="edit_title">Title</string>
+    <string name="edit_description">Description</string>
+    <string name="edit_priority">Priority:</string>
+    <string name="save">Save</string>
 </resources>
