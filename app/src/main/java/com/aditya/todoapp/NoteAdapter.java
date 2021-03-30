@@ -12,9 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
-  private List<Note> notes = new ArrayList<>();
+    private List<Note> notes = new ArrayList<>();
+    private onItemClickListener listener;
 
-  //return and create noteholder
+    //return and create noteholder
     @NonNull
     @Override
     public NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,25 +38,50 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         return notes.size();
     }
 
-    public void setNotes(List<Note> notes){
+    public void setNotes(List<Note> notes) {
         this.notes = notes;
         notifyDataSetChanged();
     }
 
-    public Note getNoteAt(int position){
+    public Note getNoteAt(int position) {
         return notes.get(position);
     }
 
-    class NoteHolder extends RecyclerView.ViewHolder{
+    class NoteHolder extends RecyclerView.ViewHolder {
         private TextView textViewTitle;
         private TextView textViewDescription;
         private TextView textViewPriority;
 
-        public NoteHolder(View itemView){
+        //constructor
+        public NoteHolder(View itemView) {
             super(itemView);
             textViewTitle = itemView.findViewById(R.id.text_view_title);
             textViewDescription = itemView.findViewById(R.id.text_view_description);
             textViewPriority = itemView.findViewById(R.id.text_view_priority);
+
+            //setting onClickListener on itemView
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition(); //get the adapter position of the clicked item
+                    if (listener != null && position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(notes.get(position)); //this way we can pass note to it
+                    }
+                }
+            });
         }
     }
+
+    //interface to get clickEvent to main activity
+    //in interface we just declare the methods but not provide implementation for method
+
+    public interface onItemClickListener {
+        void onItemClick(Note note);
+    }
+
+    //this listener variable can also be later used to call onItemClick method
+    public void setOnItemClickListener(onItemClickListener listener) {
+        this.listener = listener;
+    }
+
 }

@@ -12,8 +12,11 @@ import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.Toast;
 
-public class AddNoteActivity extends AppCompatActivity {
+public class AddEditNoteActivity extends AppCompatActivity {
 
+    //added Constant for clicked item s because room needs a PK to figure out.
+    public static final String EXTRA_ID =
+            "com.aditya.todoapp.EXTRA_ID";
 public static final String EXTRA_TITLE =
         "com.aditya.todoapp.EXTRA_TITLE";
 public static final String EXTRA_DESCRIPTION =
@@ -40,7 +43,17 @@ private NumberPicker numberPickerPriority;
         numberPickerPriority.setMaxValue(10);
 
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-        setTitle("Add Note");
+
+        Intent intent = getIntent(); //this intent contains data like id, title,etc
+
+        if (intent.hasExtra(EXTRA_ID)) {
+            setTitle("Edit Note");
+            editTextTitle.setText(intent.getStringExtra(EXTRA_TITLE));
+            editTextDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
+            numberPickerPriority.setValue(intent.getIntExtra(EXTRA_PRIORITY, 1));
+        }else {
+             setTitle("Add Note");
+        }
     }
 
 
@@ -60,8 +73,13 @@ private NumberPicker numberPickerPriority;
         data.putExtra(EXTRA_DESCRIPTION,description);
         data.putExtra(EXTRA_PRIORITY, priority);
 
-        //this way we can indicate if the input was sucessful or not
-         setResult(RESULT_OK, data); //data intent| we can let thsese two values in main activity
+        int id = getIntent().getIntExtra(EXTRA_ID, -1);
+        if (id != -1){
+            data.putExtra(EXTRA_ID, id); //our result intent
+        }
+
+        //this way we can indicate if the input was succesfull or not
+        setResult(RESULT_OK, data); //data intent| we can let thsese two values in main activity
         finish(); //to close this activity
     }
 
