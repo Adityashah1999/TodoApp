@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             //everytime onchanged is triggered adapter should be updated with new list of notes
             public void onChanged(@Nullable List<Note> notes) {
-                adapter.setNotes(notes);
+                adapter.submitList(notes);
             }
         });
 
