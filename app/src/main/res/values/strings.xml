@@ -9,4 +9,8 @@
     <string name="_1">1</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="madeBy">Made by Aditya Shah</string>
+    <string name="todo">TODO</string>
+    <string name="write_your_note">Write your note</string>
+    <string name="pencillogo">pencilLogo</string>
 </resources>
