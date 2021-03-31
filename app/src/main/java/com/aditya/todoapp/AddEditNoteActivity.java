@@ -94,14 +94,11 @@ private NumberPicker numberPickerPriority;
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.save_note:
+        if (item.getItemId() == R.id.save_note) {
             saveNote();
             return true;
-            default:
-                return super.onOptionsItemSelected(item);
-
         }
+        return super.onOptionsItemSelected(item);
 
     }
 }

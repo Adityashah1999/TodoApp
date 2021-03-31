@@ -10,9 +10,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
     private onItemClickListener listener;
 
@@ -23,12 +20,12 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
 
     private static final DiffUtil.ItemCallback<Note> DIFF_CALLBACK = new DiffUtil.ItemCallback<Note>() {
         @Override
-        public boolean areItemsTheSame(@NonNull Note oldItem, @NonNull Note newItem) {
+        public boolean areItemsTheSame( Note oldItem, Note newItem) {
             return oldItem.getId() == newItem.getId();
         }
 
         @Override
-        public boolean areContentsTheSame(@NonNull Note oldItem, @NonNull Note newItem) {
+        public boolean areContentsTheSame( Note oldItem, Note newItem) {
             return oldItem.getTitle().equals(newItem.getTitle()) &&
                     oldItem.getDescription().equals(newItem.getDescription()) &&
                     oldItem.getPriority() == newItem.getPriority();
@@ -58,9 +55,10 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
     }
 
     class NoteHolder extends RecyclerView.ViewHolder {
-        private TextView textViewTitle;
-        private TextView textViewDescription;
-        private TextView textViewPriority;
+
+        private final TextView textViewTitle;
+        private final TextView textViewDescription;
+        private final TextView textViewPriority;
 
         //constructor
         public NoteHolder(View itemView) {

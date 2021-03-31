@@ -5,4 +5,8 @@
     <string name="edit_description">Description</string>
     <string name="edit_priority">Priority:</string>
     <string name="save">Save</string>
+    <string name="delete_all_notes">Delete all notes</string>
+    <string name="_1">1</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
 </resources>
