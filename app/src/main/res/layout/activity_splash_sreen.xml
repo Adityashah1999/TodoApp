@@ -8,7 +8,7 @@
     tools:context=".SplashSreen">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image1"
         android:layout_width="155dp"
         android:layout_height="151dp"
         android:src="@drawable/splash_logo"
@@ -38,6 +38,7 @@
         android:id="@+id/moto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/basic"
         android:text="@string/write_your_note"
         android:textColor="#009688"
         android:textColorHighlight="#FFFFFF"
@@ -47,13 +48,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/image1"
         app:layout_constraintVertical_bias="0.052" />
 
     <ImageView
         android:id="@+id/pencil"
-        android:layout_width="33dp"
-        android:layout_height="42dp"
+        android:layout_width="28dp"
+        android:layout_height="31dp"
         android:layout_marginStart="4dp"
         android:contentDescription="@string/pencillogo"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +62,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/moto"
         app:layout_constraintTop_toTopOf="@+id/moto"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.01"
         app:srcCompat="@drawable/pencil" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
