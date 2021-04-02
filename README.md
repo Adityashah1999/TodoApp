@@ -43,8 +43,7 @@
 <br>
 ***4. Run the app***
 <br>
-***5. Now you can use all the functionality/features of app give below***
-<br>
+***5. Now you can use all the functionality/features of app mentioned above***
 
 
 
