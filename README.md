@@ -32,7 +32,7 @@
 
 ### Final App 
 ![todoapp](https://user-images.githubusercontent.com/47735236/113427060-1f380380-93f4-11eb-861d-724a015aaf84.gif)&nbsp; ![todoapp-landscape](https://user-images.githubusercontent.com/47735236/113427594-09770e00-93f5-11eb-835f-e65ad04968f2.gif)
-<br>
+
 
 ### Installation and User Guide
 ***1. Download the proect***
