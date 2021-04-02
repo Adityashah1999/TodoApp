@@ -79,7 +79,7 @@ private NumberPicker numberPickerPriority;
         }
 
         //this way we can indicate if the input was succesfull or not
-        setResult(RESULT_OK, data); //data intent| we can let thsese two values in main activity
+        setResult(RESULT_OK, data); //data intent we can let thsese two values in main activity
         finish(); //to close this activity
     }
 

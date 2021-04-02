@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
+
+import static android.media.CamcorderProfile.get;
 
 public class MainActivity extends AppCompatActivity {
     public static final int ADD_NOTE_REQUEST = 1;
@@ -60,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -68,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                          noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
+                noteViewModel.delete(adapter.getNoteAt(viewHolder.getAdapterPosition()));
                 Toast.makeText(MainActivity.this, "Note deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
@@ -83,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(AddEditNoteActivity.EXTRA_DESCRIPTION, note.getDescription());
                 intent.putExtra(AddEditNoteActivity.EXTRA_PRIORITY, note.getPriority());
                 startActivityForResult(intent, EDIT_NOTE_REQUEST);
-
             }
         });
     }
@@ -140,4 +144,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
